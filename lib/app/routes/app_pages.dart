@@ -2,8 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/Tickers/bindings/tickers_binding.dart';
 import '../modules/Tickers/views/tickers_view.dart';
-import '../modules/first/bindings/first_binding.dart';
-import '../modules/first/views/first_view.dart';
+import '../modules/completed/bindings/completed_binding.dart';
+import '../modules/completed/views/completed_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -18,10 +18,11 @@ class AppPages {
 
   static final routes = [
     GetPage(
-      name: _Paths.HOME,
-      page: () => const HomeView(),
-      binding: HomeBinding(),
-    ),
+        name: _Paths.HOME,
+        page: () =>  HomeView(),
+        binding: HomeBinding(),
+        // transition: Transition.leftToRight
+        ),
     GetPage(
       name: _Paths.LOGIN,
       page: () => const LoginView(),
@@ -29,9 +30,17 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.TICKERS,
-      page: () => const TickersView(),
+      page: () =>  TickersView(),
       binding: TickersBinding(),
+  
     ),
-   
+    GetPage(
+      name: _Paths.COMPLETED,
+      page: () =>  CompletedView(),
+      binding: CompletedBinding(),
+      // previous route home  left to right if prvious route  completed transition right to left,
+
+    
+    ),
   ];
 }
